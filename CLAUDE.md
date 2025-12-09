@@ -15,7 +15,7 @@ npm install
 # Start development server (opens at http://localhost:3000)
 npm run dev
 
-# Build for production (output: build/)
+# Build for production (output: dist/)
 npm run build
 
 # Preview production build
@@ -208,8 +208,9 @@ await updateTask(taskId, {
 
 ## Deployment Notes
 
-- Build output directory: `build/` (configured in vite.config.ts)
+- Build output directory: `dist/` (configured in vite.config.ts)
 - Environment variables must be prefixed with `VITE_`
 - After deployment, update Supabase redirect URLs to include production domain
+- For Netlify: `public/_redirects` file handles client-side routing (all routes serve index.html)
 - For Vercel: Add `/board` route to redirect URLs
 - Server runs on port 3000 (configurable in vite.config.ts)
