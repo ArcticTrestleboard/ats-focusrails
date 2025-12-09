@@ -78,7 +78,7 @@ export function OAuthLogin({ initialError }: OAuthLoginProps) {
             <button
               onClick={() => handleOAuthSignIn('github')}
               disabled={loadingProvider !== null}
-              className="w-full h-12 flex items-center justify-center gap-3 bg-[#24292E] border border-[#24292E] rounded-lg hover:bg-[#2F363D] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full h-12 flex items-center justify-center gap-3 bg-gray-900 border border-gray-900 rounded-lg hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loadingProvider === 'github' ? (
                 <Loader2 className="w-5 h-5 animate-spin text-white" />
