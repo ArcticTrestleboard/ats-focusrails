@@ -59,85 +59,49 @@ export function OAuthLogin({ initialError }: OAuthLoginProps) {
       </header>
 
       {/* Hero Section */}
-      <div className="flex-1 flex flex-col items-center justify-center px-4 py-12 max-w-4xl mx-auto w-full">
-        {/* Product UI Banner */}
-        <div className="w-full mb-12">
+      <div className="flex-1 flex flex-col items-center px-4 py-8 md:py-16 max-w-6xl mx-auto w-full">
+
+        {/* Headline First */}
+        <div className="text-center mb-6 md:mb-8 w-full">
+          <h1 className="text-5xl md:text-7xl font-black text-gray-900 dark:text-white mb-4 leading-tight">
+            Three Tasks.<br/>Zero Overwhelm.
+          </h1>
+          <p className="text-3xl md:text-4xl font-bold text-indigo-600 dark:text-indigo-400 mb-6">
+            Finally get unstuck.
+          </p>
+          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Built for distracted brains. No future tasks, no projects, no tags—just rails to keep you on track today.
+          </p>
+        </div>
+
+        {/* Privacy Callout - High Placement */}
+        <div className="w-full max-w-2xl mb-8 bg-lime-50 dark:bg-lime-950/30 border-2 border-lime-600 dark:border-lime-500 rounded-lg p-4">
+          <p className="text-center text-base md:text-lg font-bold text-gray-900 dark:text-white">
+            100% local. No accounts. No data mining. Ever.
+          </p>
+        </div>
+
+        {/* Product UI - LOUD */}
+        <div className="w-full mb-8 md:mb-12 border-4 border-gray-900 dark:border-white rounded-none">
           <img
             src="/images/focus-rails-banner.jpeg"
-            alt="FocusRails product interface showing NOW, Today, and Parking Lot boards"
-            className="w-full rounded-lg shadow-2xl border border-gray-200 dark:border-gray-800"
+            alt="FocusRails: NOW board with 3 tasks, Today list, Parking Lot, and 25-minute timer"
+            className="w-full block"
+            style={{
+              imageRendering: '-webkit-optimize-contrast',
+              filter: 'contrast(1.1) saturate(1.1)'
+            }}
           />
         </div>
 
-        {/* Tagline */}
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 text-center">
-          FocusRails
-        </h1>
-
-        {/* Value Prop - Brutally Clear */}
-        <div className="text-center mb-12 max-w-xl">
-          <p className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white mb-3">
-            Three lists. No chaos.
+        {/* Constraint Philosophy - Above the Fold */}
+        <div className="w-full max-w-3xl mb-12 text-center">
+          <p className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+            ADHD-friendly by design
           </p>
-          <p className="text-xl text-gray-600 dark:text-gray-400">
-            Get out of your own way.
+          <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+            Max 3 active tasks. No endless lists. No future planning paralysis. Constraint creates calm.
           </p>
-          <p className="text-sm text-gray-500 dark:text-gray-500 mt-4">
-            No future planning. No projects. Just today.
-          </p>
-        </div>
-
-        {/* How it works - 1-2-3 Steps */}
-        <div className="w-full max-w-3xl mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-            How it works
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Step 1 */}
-            <div className="text-center">
-              <div className="text-4xl font-bold text-indigo-600 dark:text-indigo-400 mb-3">1</div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Add</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                Put max 3 tasks in NOW. Everything else goes to Today or Parking Lot.
-              </p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="text-center">
-              <div className="text-4xl font-bold text-indigo-600 dark:text-indigo-400 mb-3">2</div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Focus</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                Start timer. Work for 25 minutes. No switching. No distractions.
-              </p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="text-center">
-              <div className="text-4xl font-bold text-indigo-600 dark:text-indigo-400 mb-3">3</div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Capture</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                New idea mid-focus? Drop it in Parking Lot. Don't break flow.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Privacy Guarantee - Up Front */}
-        <div className="w-full max-w-2xl mb-12 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-lg p-6">
-          <div className="flex items-start gap-3">
-            <Lock className="w-5 h-5 text-gray-700 dark:text-gray-300 flex-shrink-0 mt-1" />
-            <div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">
-                Your data stays yours
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                No analytics. No tracking. No data mining. Your tasks sync to your account only.
-              </p>
-              <p className="text-xs text-gray-500 dark:text-gray-500">
-                Delete anytime—instant, permanent, no questions asked.
-              </p>
-            </div>
-          </div>
         </div>
 
       </div>
