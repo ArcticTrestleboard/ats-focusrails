@@ -28,8 +28,36 @@ export function OAuthLogin({ initialError }: OAuthLoginProps) {
     // No need to clear loading state as component will unmount
   };
 
+  const [showSignIn, setShowSignIn] = useState(false);
+
   return (
     <div className="min-h-screen bg-white dark:bg-[#070815] flex flex-col">
+      {/* Header */}
+      <header className="w-full border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#070815]">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+          {/* Logo */}
+          <div className="text-xl font-bold text-gray-900 dark:text-white">
+            FocusRails
+          </div>
+
+          {/* Actions */}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setShowSignIn(true)}
+              className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+            >
+              Sign In
+            </button>
+            <button
+              onClick={() => {/* TODO: Stripe integration */}}
+              className="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-lg transition-colors"
+            >
+              Purchase License
+            </button>
+          </div>
+        </div>
+      </header>
+
       {/* Hero Section */}
       <div className="flex-1 flex flex-col items-center justify-center px-4 py-12 max-w-4xl mx-auto w-full">
         {/* Product UI Banner */}
@@ -112,50 +140,75 @@ export function OAuthLogin({ initialError }: OAuthLoginProps) {
           </div>
         </div>
 
-        {/* CTA - Sign In */}
-        <div className="w-full max-w-md">
-          {/* Error Banner */}
-          {error && (
-            <div className="mb-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/50 text-red-700 dark:text-red-400 px-4 py-3 rounded-lg text-sm">
-              {error}
-            </div>
-          )}
-
-          <div className="space-y-3">
-            {/* Google */}
-            <button
-              onClick={() => handleOAuthSignIn('google')}
-              disabled={loadingProvider !== null}
-              className="w-full h-14 flex items-center justify-center gap-3 bg-white dark:bg-white border-2 border-gray-900 rounded-lg hover:bg-gray-50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loadingProvider === 'google' ? (
-                <Loader2 className="w-5 h-5 animate-spin text-gray-700" />
-              ) : (
-                <GoogleIcon />
-              )}
-              <span className="text-gray-900 font-bold">Sign in with Google</span>
-            </button>
-
-            {/* GitHub */}
-            <button
-              onClick={() => handleOAuthSignIn('github')}
-              disabled={loadingProvider !== null}
-              className="w-full h-14 flex items-center justify-center gap-3 bg-gray-900 border-2 border-gray-900 rounded-lg hover:bg-gray-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loadingProvider === 'github' ? (
-                <Loader2 className="w-5 h-5 animate-spin text-white" />
-              ) : (
-                <GitHubIcon />
-              )}
-              <span className="text-white font-bold">Sign in with GitHub</span>
-            </button>
-          </div>
-
-          <p className="mt-4 text-xs text-center text-gray-500 dark:text-gray-500">
-            Sign in to access your board. No signup, no credit card, no trial period.
-          </p>
-        </div>
       </div>
+
+      {/* Sign In Modal */}
+      {showSignIn && (
+        <div
+          className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
+          onClick={() => setShowSignIn(false)}
+        >
+          <div
+            className="bg-white dark:bg-[#161827] rounded-xl p-8 max-w-md w-full shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                Sign In
+              </h2>
+              <button
+                onClick={() => setShowSignIn(false)}
+                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+              >
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Error Banner */}
+            {error && (
+              <div className="mb-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/50 text-red-700 dark:text-red-400 px-4 py-3 rounded-lg text-sm">
+                {error}
+              </div>
+            )}
+
+            <div className="space-y-3">
+              {/* Google */}
+              <button
+                onClick={() => handleOAuthSignIn('google')}
+                disabled={loadingProvider !== null}
+                className="w-full h-14 flex items-center justify-center gap-3 bg-white dark:bg-white border-2 border-gray-900 rounded-lg hover:bg-gray-50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loadingProvider === 'google' ? (
+                  <Loader2 className="w-5 h-5 animate-spin text-gray-700" />
+                ) : (
+                  <GoogleIcon />
+                )}
+                <span className="text-gray-900 font-bold">Continue with Google</span>
+              </button>
+
+              {/* GitHub */}
+              <button
+                onClick={() => handleOAuthSignIn('github')}
+                disabled={loadingProvider !== null}
+                className="w-full h-14 flex items-center justify-center gap-3 bg-gray-900 border-2 border-gray-900 rounded-lg hover:bg-gray-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loadingProvider === 'github' ? (
+                  <Loader2 className="w-5 h-5 animate-spin text-white" />
+                ) : (
+                  <GitHubIcon />
+                )}
+                <span className="text-white font-bold">Continue with GitHub</span>
+              </button>
+            </div>
+
+            <p className="mt-6 text-xs text-center text-gray-500 dark:text-gray-500">
+              Sign in to access your board. No signup, no credit card, no trial period.
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
