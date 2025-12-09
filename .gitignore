@@ -71,3 +71,6 @@ vite.config.*.timestamp-*
 
 # Vercel
 .vercel
+
+# Local Netlify folder
+.netlify

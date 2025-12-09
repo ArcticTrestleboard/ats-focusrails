@@ -1,9 +1,12 @@
+import { User } from '@supabase/supabase-js';
 import { Task } from '../lib/types';
 import { TaskSection } from './TaskSection';
 import { ThemeToggle } from './ThemeToggle';
-import { User, Undo2 } from 'lucide-react';
+import { UserProfile } from './UserProfile';
+import { Undo2 } from 'lucide-react';
 
 interface TodayBoardProps {
+  user: User;
   nowTasks: Task[];
   todayTasks: Task[];
   parkingLotTasks: Task[];
@@ -20,6 +23,7 @@ interface TodayBoardProps {
 }
 
 export function TodayBoard({
+  user,
   nowTasks,
   todayTasks,
   parkingLotTasks,
@@ -59,9 +63,7 @@ export function TodayBoard({
               onToggle={onToggleTheme}
             />
           )}
-          <button className="w-9 h-9 bg-indigo-600 rounded-full flex items-center justify-center hover:bg-indigo-700 transition-colors">
-            <User className="w-5 h-5 text-white" />
-          </button>
+          <UserProfile user={user} />
         </div>
       </header>
 

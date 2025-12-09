@@ -358,6 +358,7 @@ export default function App() {
         {viewMode === "board" ? (
           <>
             <TodayBoard
+              user={user}
               nowTasks={nowTasks}
               todayTasks={todayTasks}
               parkingLotTasks={parkingLotTasks}
