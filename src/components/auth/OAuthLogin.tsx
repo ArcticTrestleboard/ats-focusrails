@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Loader2 } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth';
-import { GoogleIcon, GitHubIcon, MicrosoftIcon, AppleIcon, FacebookIcon } from './provider-icons';
+import { GoogleIcon, GitHubIcon } from './provider-icons';
 
 interface OAuthLoginProps {
   initialError?: string;
 }
 
-type Provider = 'google' | 'github' | 'azure' | 'apple' | 'facebook';
+type Provider = 'google' | 'github';
 
 export function OAuthLogin({ initialError }: OAuthLoginProps) {
   const { signInWithOAuth } = useAuth();
@@ -86,48 +86,6 @@ export function OAuthLogin({ initialError }: OAuthLoginProps) {
                 <GitHubIcon />
               )}
               <span className="text-white font-medium">Continue with GitHub</span>
-            </button>
-
-            {/* Microsoft */}
-            <button
-              onClick={() => handleOAuthSignIn('azure')}
-              disabled={loadingProvider !== null}
-              className="w-full h-12 flex items-center justify-center gap-3 bg-white dark:bg-white border border-gray-300 dark:border-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loadingProvider === 'azure' ? (
-                <Loader2 className="w-5 h-5 animate-spin text-gray-700" />
-              ) : (
-                <MicrosoftIcon />
-              )}
-              <span className="text-gray-900 font-medium">Continue with Microsoft</span>
-            </button>
-
-            {/* Apple */}
-            <button
-              onClick={() => handleOAuthSignIn('apple')}
-              disabled={loadingProvider !== null}
-              className="w-full h-12 flex items-center justify-center gap-3 bg-black border border-black rounded-lg hover:bg-gray-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loadingProvider === 'apple' ? (
-                <Loader2 className="w-5 h-5 animate-spin text-white" />
-              ) : (
-                <AppleIcon />
-              )}
-              <span className="text-white font-medium">Continue with Apple</span>
-            </button>
-
-            {/* Facebook */}
-            <button
-              onClick={() => handleOAuthSignIn('facebook')}
-              disabled={loadingProvider !== null}
-              className="w-full h-12 flex items-center justify-center gap-3 bg-[#1877F2] border border-[#1877F2] rounded-lg hover:bg-[#166FE5] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loadingProvider === 'facebook' ? (
-                <Loader2 className="w-5 h-5 animate-spin text-white" />
-              ) : (
-                <FacebookIcon />
-              )}
-              <span className="text-white font-medium">Continue with Facebook</span>
             </button>
           </div>
 

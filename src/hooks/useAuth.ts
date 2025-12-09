@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { User, AuthError } from '@supabase/supabase-js';
 import { supabase } from '../lib/supabase';
 
-type Provider = 'google' | 'github' | 'azure' | 'apple' | 'facebook';
+type Provider = 'google' | 'github';
 
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);
