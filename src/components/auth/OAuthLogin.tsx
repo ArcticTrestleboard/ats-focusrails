@@ -59,49 +59,46 @@ export function OAuthLogin({ initialError }: OAuthLoginProps) {
       </header>
 
       {/* Hero Section */}
-      <div className="flex-1 flex flex-col items-center px-4 py-8 md:py-16 max-w-6xl mx-auto w-full">
+      <div className="flex-1 flex flex-col items-center px-4 py-6 md:py-12 max-w-6xl mx-auto w-full">
 
-        {/* Headline First */}
-        <div className="text-center mb-6 md:mb-8 w-full">
-          <h1 className="text-5xl md:text-7xl font-black text-gray-900 dark:text-white mb-4 leading-tight">
-            Three Tasks.<br/>Zero Overwhelm.
+        {/* Privacy Badge - FIRST THING */}
+        <div className="mb-6 flex items-center gap-2 bg-lime-500 dark:bg-lime-600 text-black px-6 py-3 rounded-full font-bold text-sm md:text-base">
+          <Lock className="w-5 h-5" />
+          100% Local • No Accounts • No Data Mining • Ever
+        </div>
+
+        {/* Headline - Constraint First */}
+        <div className="text-center mb-8 w-full">
+          <h1 className="text-4xl md:text-7xl font-black text-gray-900 dark:text-white mb-3 leading-none">
+            Three Tasks.<br className="md:hidden"/>
+            Zero Overwhelm.
           </h1>
-          <p className="text-3xl md:text-4xl font-bold text-indigo-600 dark:text-indigo-400 mb-6">
-            Finally get unstuck.
-          </p>
-          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Built for distracted brains. No future tasks, no projects, no tags—just rails to keep you on track today.
+          <p className="text-xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            The ADHD-first focus tool that gets you out of your own way.
           </p>
         </div>
 
-        {/* Privacy Callout - High Placement */}
-        <div className="w-full max-w-2xl mb-8 bg-lime-50 dark:bg-lime-950/30 border-2 border-lime-600 dark:border-lime-500 rounded-lg p-4">
-          <p className="text-center text-base md:text-lg font-bold text-gray-900 dark:text-white">
-            100% local. No accounts. No data mining. Ever.
-          </p>
-        </div>
-
-        {/* Product UI - LOUD */}
-        <div className="w-full mb-8 md:mb-12 border-4 border-gray-900 dark:border-white rounded-none">
+        {/* Product UI - RAW AND LOUD */}
+        <div className="w-full mb-8 border-4 border-black dark:border-white rounded-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]">
           <img
             src="/images/focus-rails-banner.jpeg"
-            alt="FocusRails: NOW board with 3 tasks, Today list, Parking Lot, and 25-minute timer"
+            alt="Real tasks in NOW: Send tax return, Call Dr. Riley, Pay electricity. Timer at 22:45. Random ideas in Parking Lot."
             className="w-full block"
             style={{
-              imageRendering: '-webkit-optimize-contrast',
-              filter: 'contrast(1.1) saturate(1.1)'
+              imageRendering: 'crisp-edges',
+              filter: 'contrast(1.15) saturate(1.2)'
             }}
           />
         </div>
 
-        {/* Constraint Philosophy - Above the Fold */}
-        <div className="w-full max-w-3xl mb-12 text-center">
-          <p className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-            ADHD-friendly by design
-          </p>
-          <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-            Max 3 active tasks. No endless lists. No future planning paralysis. Constraint creates calm.
-          </p>
+        {/* Sharp CTA */}
+        <div className="mb-12">
+          <button
+            onClick={() => setShowSignIn(true)}
+            className="bg-black dark:bg-white text-white dark:text-black px-8 md:px-12 py-4 md:py-5 text-xl md:text-2xl font-black rounded-none hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors shadow-[4px_4px_0px_0px_rgba(99,102,241,1)]"
+          >
+            Start My Day—No Setup, No Junk
+          </button>
         </div>
 
       </div>
@@ -149,7 +146,7 @@ export function OAuthLogin({ initialError }: OAuthLoginProps) {
                 ) : (
                   <GoogleIcon />
                 )}
-                <span className="text-gray-900 font-bold">Continue with Google</span>
+                <span className="text-gray-900 font-bold">Google</span>
               </button>
 
               {/* GitHub */}
@@ -163,12 +160,12 @@ export function OAuthLogin({ initialError }: OAuthLoginProps) {
                 ) : (
                   <GitHubIcon />
                 )}
-                <span className="text-white font-bold">Continue with GitHub</span>
+                <span className="text-white font-bold">GitHub</span>
               </button>
             </div>
 
-            <p className="mt-6 text-xs text-center text-gray-500 dark:text-gray-500">
-              Sign in to access your board. No signup, no credit card, no trial period.
+            <p className="mt-6 text-sm text-center font-bold text-gray-900 dark:text-white">
+              Pick one. Start now. Zero friction.
             </p>
           </div>
         </div>
